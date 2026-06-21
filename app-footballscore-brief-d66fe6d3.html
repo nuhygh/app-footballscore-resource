@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球比分 · 实时赛况知识库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f8fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2.4rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 740px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            padding: 2.8rem 2.4rem 3.6rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .page {
+                padding: 2rem 1.2rem 2.6rem;
+                border-radius: 20px;
+            }
+        }
+
+        h1 {
+            font-size: 2.0rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.4rem;
+            color: #0b1a2a;
+            line-height: 1.2;
+            border-left: 4px solid #2667a8;
+            padding-left: 1rem;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #5b6f84;
+            margin-top: -0.2rem;
+            margin-bottom: 2.6rem;
+            padding-left: 1.4rem;
+            font-weight: 380;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 480;
+            margin-top: 2.4rem;
+            margin-bottom: 0.6rem;
+            color: #1f3142;
+            border-bottom: 1px solid #e6eaef;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 460;
+            margin-top: 1.6rem;
+            margin-bottom: 0.2rem;
+            color: #2a4055;
+        }
+
+        p {
+            margin: 0.8rem 0 1.2rem 0;
+            color: #2d3f53;
+        }
+
+        a {
+            color: #2667a8;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #2667a8;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem 2rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        @media (max-width: 500px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+
+        .card-item {
+            background: #f2f5f9;
+            padding: 1.2rem 1.4rem;
+            border-radius: 18px;
+            transition: background 0.1s;
+        }
+
+        .card-item strong {
+            display: block;
+            font-weight: 520;
+            font-size: 1.02rem;
+            margin-bottom: 0.2rem;
+            color: #133046;
+        }
+
+        .card-item span {
+            font-size: 0.92rem;
+            color: #3d556b;
+            line-height: 1.55;
+        }
+
+        .highlight-box {
+            background: #eef3f9;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            margin: 1.8rem 0 1.2rem;
+            border-left: 3px solid #2667a8;
+        }
+
+        .highlight-box p {
+            margin: 0.2rem 0;
+        }
+
+        .faq-mini {
+            margin-top: 2.2rem;
+            padding-top: 0.6rem;
+        }
+
+        .faq-item {
+            margin: 0.6rem 0;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #dce2ea;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 480;
+            color: #15354e;
+        }
+
+        .faq-a {
+            font-size: 0.92rem;
+            color: #405b73;
+            margin-top: 0.1rem;
+        }
+
+        .note-meta {
+            font-size: 0.85rem;
+            color: #73899f;
+            margin-top: 2.6rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.8rem;
+        }
+
+        .tag {
+            background: #e8edf4;
+            padding: 0.1rem 0.7rem;
+            border-radius: 24px;
+            font-size: 0.75rem;
+            color: #2a4a6a;
+            letter-spacing: 0.3px;
+            display: inline-block;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 1.8rem 0 0.8rem;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #6e859c;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>足球比分</h1>
+    <div class="subhead">实时数据 · 联赛追踪 · 信息索引</div>
+
+    <p>
+        如果你常看球，应该能体会那种刷新页面等比分跳动的感觉。作为球迷，我们总想第一时间知道赛果，但又希望信息来源可靠、更新及时。
+        <a href="https://app-footballscore.com">足球比分</a> 这个站点正是为此搭建——它提供一种轻量、直接的方式，帮你聚焦比赛本身。
+    </p>
+
+    <div class="intro-grid">
+        <div class="card-item">
+            <strong>覆盖范围</strong>
+            <span>欧洲五大联赛、欧冠、欧联、亚冠、南美解放者杯及各国主要杯赛。日常超过 40 个联赛与赛事。</span>
+        </div>
+        <div class="card-item">
+            <strong>数据节奏</strong>
+            <span>比赛日滚动更新，进球、红黄牌、换人实时推送。历史赛果保留最近若干轮次。</span>
+        </div>
+        <div class="card-item">
+            <strong>界面风格</strong>
+            <span>信息优先，弱化装饰。赛程、积分、对阵一目了然，无需多余跳转。</span>
+        </div>
+        <div class="card-item">
+            <strong>使用场景</strong>
+            <span>通勤、工作间隙、看球时辅助核对。电脑或手机浏览器都可直接使用。</span>
+        </div>
+    </div>
+
+    <h2>为什么需要这样一个站点</h2>
+    <p>
+        足球比赛信息往往散落在各个新闻网站或社交平台，有时夹杂大量广告或主观评论。<strong>我们想提供一个更中性的信息层</strong>：只展示谁在踢、几比几、什么时间、什么阶段。不做预测，不贩卖情绪。你打开页面，看到的就是比赛此刻的样子。
+    </p>
+    <p>
+        当然，任何数据源都存在延迟或偶发误差。足球比分站点基于公开数据整合，可作为快速参考，但重大决策（例如投注、分析）建议以官方记录为准。
+    </p>
+
+    <div class="highlight-box">
+        <p style="font-weight: 430;">📌 你可以这样使用</p>
+        <p style="margin-top: 0.4rem;">— 赛前查看当日对阵与开球时间</p>
+        <p>— 赛中实时关注比分变化与关键事件</p>
+        <p>— 赛后回顾完整赛果及简要统计</p>
+    </div>
+
+    <h2>信息可信度说明</h2>
+    <p>
+        站点不生产原始比赛数据，而是聚合来自授权数据接口的推送，经过交叉比对后呈现。我们不会对比赛走势做任何评论或暗示，<strong>只呈现事实层面的事件序列</strong>。如果你发现某场比赛数据有明显异常，可以通过站点内反馈渠道告知（联系方式在页面底部区域）。
+    </p>
+    <p>
+        另外，部分杯赛或低级别联赛因转播覆盖有限，更新频率可能略低于顶级联赛。我们持续优化数据管道，但<strong>建议在关键场景下多源核对</strong>。
+    </p>
+
+    <div class="faq-mini">
+        <h2 style="border-bottom: none; margin-top: 0; padding-bottom: 0;">一些常见疑问</h2>
+        <div class="faq-item">
+            <div class="faq-q">是否需要注册或付费？</div>
+            <div class="faq-a">完全免费，无需登录。直接访问 <a href="https://app-footballscore.com">足球比分</a> 即可看到赛程与实时数据。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">手机端体验如何？</div>
+            <div class="faq-a">页面针对小屏做了适配，列表可横向滑动，比分数字清晰可读。你也可以添加到主屏幕，像应用一样快速打开。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">数据刷新频率是多久？</div>
+            <div class="faq-a">比赛进行中通常每 15–30 秒同步一次；中场休息或结束阶段更新间隔稍长。具体取决于数据源推送周期。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">为什么有时看到“vs”或“延期”？</div>
+            <div class="faq-a">赛前状态显示对阵双方；若因天气、安全问题推迟，页面会标注延期。补赛时间确定后会同步更新。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="note-meta">
+        <span>📋 站点性质：足球比分信息聚合页</span>
+        <span class="tag">知识库入口式</span>
+        <span class="tag">实时比分</span>
+    </div>
+    <div class="footer-note">
+        本页仅为介绍与导航，数据均来自公开接口。使用中如有疑问，可返回 <a href="https://app-footballscore.com">足球比分</a> 主站查阅更多细节。
+    </div>
+
+</div>
+</body>
+</html>
